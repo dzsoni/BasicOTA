@@ -106,14 +106,6 @@ public:
     {
     }
 
-    void restart()
-    {
-        yield();
-        delay(1000);
-        yield();
-        ESP.restart();
-    }
-
 private:
     AsyncWebServer *_server;
 };
