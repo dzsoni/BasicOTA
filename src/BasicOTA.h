@@ -100,15 +100,8 @@ public:
         }
     );
     }
-
-    // deprecated, keeping for backward compatibility
-    void loop()
-    {
-    }
-
 private:
     AsyncWebServer *_server;
 };
-
 BasicOtaClass BasicOTA;
 #endif
