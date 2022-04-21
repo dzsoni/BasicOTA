@@ -1,3 +1,10 @@
+/**************************************************************
+  BasicOTA:On The Air firmware and filesystem update via local
+   http page.
+   Author: dzsoni https://github.com/dzsoni/BasicOTA
+   Licensed under MIT license
+ **************************************************************/
+
 #ifndef BasicOTA_h
 #define BasicOTA_h
 

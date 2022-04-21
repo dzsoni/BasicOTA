@@ -1,5 +1,17 @@
+/**************************************************************
+  BasicOTA:On The Air firmware and filesystem update via local
+   http page.
+   Author: dzsoni https://github.com/dzsoni/BasicOTA
+   Licensed under MIT license
+ **************************************************************/
 #ifndef OTAWebpage_h
 #define OTAWebpage_h
+
+
+/*This is the minified and gziped version of the OTAwebpage.html
+  Use this tools:https://htmlcompressor.com/compressor/
+           and   https://gchq.github.io/CyberChef/
+*/
 
 const unsigned int OTA_HTML_SIZE = 925;
 const unsigned char OTA_HTML[] PROGMEM = {
