@@ -14,12 +14,14 @@
 #if defined(ESP8266)
 #include "ESP8266WiFi.h"
 #include "ESPAsyncTCP.h"
+#define U_PART U_FS
 #elif defined(ESP32)
 #include "WiFi.h"
 #include "AsyncTCP.h"
 #include "Update.h"
 #include "esp_int_wdt.h"
 #include "esp_task_wdt.h"
+#define U_PART U_SPIFFS
 #endif
 
 
@@ -62,12 +64,10 @@ public:
             if (!index)
             {
                 Serial.printf("Update Start: %s\n", filename.c_str());
-
-#if defined(ESP8266)
-
                 String s = request->arg("firmwaretype");
                 Serial.println(s);
-                int cmd = (s == "filesystem") ? U_FS : U_FLASH;
+                int cmd = (s == "filesystem") ? U_PART : U_FLASH;
+#if defined(ESP8266)
 
                 Update.runAsync(true);
                 size_t fsSize = ((size_t)&_FS_end - (size_t)&_FS_start);
@@ -78,7 +78,7 @@ public:
                     return request->send(400, "text/plain", "OTA could not begin");
                 }
 #else
-                if (!Update.begin(UPDATE_SIZE_UNKNOWN, cmd))
+                if (!Update.begin(UPDATE_SIZE_UNKNOWN,cmd))
                 {
                     Update.printError(Serial);
                     return request->send(400, "text/plain", "OTA could not begin");
