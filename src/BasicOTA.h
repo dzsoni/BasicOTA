@@ -3,10 +3,16 @@
    http page.
    Author: dzsoni https://github.com/dzsoni/BasicOTA
    Licensed under MIT license
- **************************************************************/
 
-#ifndef BasicOTA_h
-#define BasicOTA_h
+External libraries:
+https://github.com/me-no-dev/ESPAsyncTCP
+https://github.com/me-no-dev/AsyncTCP
+https://github.com/me-no-dev/ESPAsyncWebServer
+
+***************************************************************/
+
+#ifndef BASICOTA_H
+#define BASICOTA_H
 
 #include "Arduino.h"
 
@@ -26,7 +32,7 @@
 
 
 #include "ESPAsyncWebServer.h"
-#include "FS.h"
+
 
 #include "OTAwebpage.h"
 
@@ -111,4 +117,4 @@ private:
     AsyncWebServer *_server;
 };
 BasicOtaClass BasicOTA;
-#endif
+#endif /* BASICOTA_H */
